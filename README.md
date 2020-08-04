@@ -16,6 +16,8 @@ Photo by Bruno Thethe from Pexels (Resized to 400x600)
 
 ### Post pixels grouping
 
+Consists of 12 colours only 
+
 ![Post pixels grouping](examples/output/paint_bruno.jpg)
 
 ### Post blur
