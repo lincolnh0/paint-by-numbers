@@ -88,8 +88,12 @@ typings/
 # Electron-Forge
 out/
 
+
 env/
 *.pycache/
 *.jpg
 *.jpeg
 *png
+
+
+
