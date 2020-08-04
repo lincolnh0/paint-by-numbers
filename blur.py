@@ -6,7 +6,7 @@ from scipy import misc
 import scipy.ndimage as ndimage
 
 
-im = np.array(Image.open('paint_xtina.jpeg'))
+im = np.array(Image.open('examples/output/paint_bruno.jpg'))
 result = ndimage.uniform_filter(im, size=(2, 2, 1))
 plt.imshow(result)
 plt.axis('off')

@@ -4,8 +4,8 @@ import numpy as np
 from collections import deque, defaultdict
 import random
 
-input_file = 'black.jpg'
-output_file = 'paint_' + input_file
+input_file = 'examples/bruno.jpg'
+output_file = 'examples/output/paint_bruno.jpg'
 cluster_count = 20
 cluster_factor = 3
 run_diff_threshold = 500
@@ -126,9 +126,6 @@ class ColourCluster(object):
         '''
         return self.default
 
-
-    
-
 def createClusters(count):
     '''
     Create count ^ 3 clusters equally apart in the colour space.
@@ -167,10 +164,14 @@ if uniform_clusters:
     stock_clusters = createClusters(cluster_factor)
 else:
     stock_clusters = createRandomClusters(cluster_count)
+
+# Super hacky code here to query user input.
+
 distribution = [im.shape[0] * im.shape[1]]
 count = 0
 next_check = 1
 prevMax = run_diff = max(distribution)
+
 while run_diff > run_diff_threshold:
     for cluster in stock_clusters:
         cluster.clearClusterKeepPosition()
