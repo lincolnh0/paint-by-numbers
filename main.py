@@ -1,5 +1,10 @@
-import sys
+# Arguments list
+#
+# -r            Use randomly placed clusters instead of uniformly distributed.
+# -c [number]   Specify the number of randomly placed clusters.
+# -f [number]   Specify the number (after being raised to the power of 3) of uniformly distributed clusters.
 
+import sys
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
@@ -43,6 +48,7 @@ while count != next_check:
     for cluster in stock_clusters:
         cluster.clear_cluster_keep_position()
 
+    print("----------------")
     print(f"Run no. {count}")
 
     for r, row in tqdm(enumerate(im), initial=0, unit_scale=True):
