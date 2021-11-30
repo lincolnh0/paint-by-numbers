@@ -24,7 +24,7 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
-        args: ["--config=setup.cfg"]
+        args: ["--config=setup.ini"]
         additional_dependencies: [flake8-isort]
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
