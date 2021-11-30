@@ -160,6 +160,9 @@ def create_random_clusters(count):
 
 
 def get_closest_cluster(point, clusters):
+    """
+    Return the closest cluster from the given point in the given list of clusters.
+    """
     distance = defaultdict(ColourCluster)
     if isinstance(point, ColourCluster):
         point = point.defaults

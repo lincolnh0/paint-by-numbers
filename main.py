@@ -42,6 +42,12 @@ else:
 count = 0
 next_check = 1
 
+pixels = []
+for r, row in enumerate(im):
+    for c, column in enumerate(row):
+        pixels.append(ColourPixel(column, r, c))
+
+
 while count != next_check:
     count += 1
     total_cluster_distance = 0
@@ -51,14 +57,10 @@ while count != next_check:
     print("----------------")
     print(f"Run no. {count}")
 
-    for r, row in tqdm(enumerate(im), initial=0, unit_scale=True):
-        for c, column in enumerate(row):
-            pixel = ColourPixel(column, r, c)
-            closest_cluster, cluster_distance = get_closest_cluster(
-                pixel, stock_clusters
-            )
-            closest_cluster.append(pixel)
-            total_cluster_distance += cluster_distance
+    for pixel in tqdm(pixels):
+        closest_cluster, cluster_distance = get_closest_cluster(pixel, stock_clusters)
+        closest_cluster.append(pixel)
+        total_cluster_distance += cluster_distance
 
     distribution = [len(x.pixels) for x in stock_clusters]
     print(f"Clusters count distribution:\n{distribution}")
