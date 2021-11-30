@@ -109,15 +109,12 @@ class ColourCluster(object):
             self.pixels.clear()
 
     def update_average(self):
+        """
+        Updates self default.
+        """
         if len(self.pixels) > 0:
             total_pixels = len(self.pixels)
-            red_average, green_average, blue_average = (
-                int(sum([x.red for x in self.pixels]) / total_pixels),
-                int(sum([x.green for x in self.pixels]) / total_pixels),
-                int(sum([x.blue for x in self.pixels]) / total_pixels),
-            )
-
-            self.default = ColourPixel([red_average, green_average, blue_average])
+            self.default = int(sum(self.pixels) / total_pixels)
 
     @property
     def mean_value(self):
@@ -165,7 +162,7 @@ def get_closest_cluster(point, clusters):
     """
     distance = defaultdict(ColourCluster)
     if isinstance(point, ColourCluster):
-        point = point.defaults
+        point = point.default
 
     for cluster in clusters:
         distance[ColourPixel.distance(cluster.mean_value, point)] = cluster
